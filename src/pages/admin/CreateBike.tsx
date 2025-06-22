@@ -52,7 +52,7 @@ const CreateBike = () => {
 	}
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Upload processing...")
+                const toastId = toast.loading("Загрузка...")
 
 		const formData = new FormData()
 
@@ -79,7 +79,7 @@ const CreateBike = () => {
 				navigate("/dashboard/bike-management")
 			}
 		} catch (error) {
-			toast.error("Failed to upload bike...", { id: toastId })
+                        toast.error("Не удалось загрузить велосипед...", { id: toastId })
 		}
 	}
 	return (

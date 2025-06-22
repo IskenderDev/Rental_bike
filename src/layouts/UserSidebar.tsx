@@ -33,7 +33,7 @@ const UserSidebar = () => {
                         logoutUser()
                 }
                 dispatch(logout())
-                toast.success("User logged out successfully!")
+                toast.success("Вы вышли из системы")
                 navigate("/")
         }
 	return (

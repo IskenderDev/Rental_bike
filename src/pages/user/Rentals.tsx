@@ -77,7 +77,7 @@ const Rentals = () => {
 	}
 
 	const handleFullPay = async (id: string) => {
-		const toastId = toast.loading("Payment processing...")
+                const toastId = toast.loading("Обработка платежа...")
 		const paymentInfo = {
 			id,
 			token,
@@ -86,7 +86,7 @@ const Rentals = () => {
 
 		try {
 			if (!unpaid?.isReturned) {
-				toast.error("This bike is not return yet!", { id: toastId })
+                                toast.error("Этот велосипед ещё не возвращён!", { id: toastId })
 			} else {
 				const res = await fullPayment(paymentInfo).unwrap()
 				if (res.success) {
@@ -95,7 +95,7 @@ const Rentals = () => {
 				}
 			}
 		} catch (error) {
-			toast.error("Bike rent Process Failed...", { id: toastId })
+                        toast.error("Ошибка аренды велосипеда...", { id: toastId })
 		}
 	}
 

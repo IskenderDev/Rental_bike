@@ -34,10 +34,10 @@ const EditProfile = () => {
 	})
 
         const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-                const toastId = toast.loading("Updating profile...")
+                const toastId = toast.loading("Обновление профиля...")
                 if (token === 'local-auth') {
                         updateCurrentUser(data)
-                        toast.success('Profile updated', { id: toastId })
+                        toast.success('Профиль обновлён', { id: toastId })
                         navigate('/dashboard/my-profile')
                         return
                 }
@@ -50,7 +50,7 @@ const EditProfile = () => {
                         toast.success(res.message, { id: toastId })
                         navigate("/dashboard/my-profile")
                 } catch (error) {
-                        toast.error("Profile Update Process Failed...", { id: toastId })
+                        toast.error("Ошибка обновления профиля...", { id: toastId })
                 }
         }
 	return (

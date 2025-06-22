@@ -61,7 +61,7 @@ const UpdateBike = () => {
 	})
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Updating bike info...")
+                const toastId = toast.loading("Обновление данных велосипеда...")
 		const bikeInfo = {
 			id,
 			data,
@@ -72,7 +72,7 @@ const UpdateBike = () => {
 			toast.success(res.message, { id: toastId })
 			navigate("/dashboard/bike-management")
 		} catch (error) {
-			toast.error("Bike Update Process Failed...", { id: toastId })
+                        toast.error("Ошибка обновления велосипеда...", { id: toastId })
 		}
 	}
 

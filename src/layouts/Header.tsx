@@ -83,10 +83,10 @@ const Header = () => {
                                 logoutUser()
                         }
                         dispatch(logout())
-                        toast.success("User logged out successfully!")
+                        toast.success("Вы вышли из системы")
                         navigate("/")
                 } catch (error) {
-                        toast.error("Something went wrong!")
+                        toast.error("Что-то пошло не так!")
                 }
         }
 

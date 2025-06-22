@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -35,7 +34,7 @@ const ReturnBike = () => {
 	const rentalBikes = rentalData?.data
 
 	const handleReturn = async (id: string) => {
-		const toastId = toast.loading("Bike return processing...")
+                const toastId = toast.loading("Обработка возврата велосипеда...")
 		const returnInfo = {
 			token,
 			id,
@@ -44,15 +43,15 @@ const ReturnBike = () => {
 		const rentals = rentalBikes.find((rent: TRental) => rent._id === id)
 
 		try {
-			if (rentals.isReturned) {
-				toast.error("This bike is already returned!", { id: toastId })
+                        if (rentals.isReturned) {
+                                toast.error("Этот велосипед уже возвращён!", { id: toastId })
 				return
 			} else {
 				const res = await returnBike(returnInfo).unwrap()
 				toast.success(res.message, { id: toastId })
 			}
 		} catch (error) {
-			toast.error("Bike return Process Failed...", { id: toastId })
+                        toast.error("Не удалось оформить возврат велосипеда...", { id: toastId })
 		}
 	}
 

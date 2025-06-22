@@ -18,17 +18,17 @@ const TOKEN_KEY = 'authToken'
 export const registerUser = (user: LocalUser): { success: boolean; message: string } => {
   const users = getItem<LocalUser[]>(USERS_KEY) || []
   if (users.find(u => u.email === user.email)) {
-    return { success: false, message: 'User already exists' }
+    return { success: false, message: 'Пользователь уже существует' }
   }
   users.push(user)
   setItem(USERS_KEY, users)
-  return { success: true, message: 'Registration successful' }
+  return { success: true, message: 'Регистрация прошла успешно' }
 }
 
 export const loginUser = (email: string, password: string): { success: boolean; user?: LocalUser; message?: string } => {
   const users = getItem<LocalUser[]>(USERS_KEY) || []
   const found = users.find(u => u.email === email && u.password === password)
-  if (!found) return { success: false, message: 'Invalid credentials' }
+  if (!found) return { success: false, message: 'Неверные учетные данные' }
   setItem(CURRENT_USER_KEY, found)
   setItem(TOKEN_KEY, 'local-auth')
   return { success: true, user: found }

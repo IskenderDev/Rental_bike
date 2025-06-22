@@ -43,7 +43,7 @@ const UserManagement = () => {
 	const users = userData?.data
 
 	const handleUpdateUser = async (id: string) => {
-		const toastId = toast.loading("Updating user...")
+                const toastId = toast.loading("Обновление пользователя...")
 
 		const userInfo = {
 			id,
@@ -54,7 +54,7 @@ const UserManagement = () => {
 			const res = await updateUserToAdmin(userInfo).unwrap()
 			toast.success(res.message, { id: toastId })
 		} catch (error) {
-			toast.error("User Update Process Failed...", { id: toastId })
+                        toast.error("Ошибка обновления пользователя...", { id: toastId })
 		}
 	}
 
@@ -84,7 +84,7 @@ const UserManagement = () => {
 				}
 			})
 		} catch (error) {
-			toast.error("User Delete Process Failed...")
+                        toast.error("Ошибка удаления пользователя...")
 		}
 	}
 

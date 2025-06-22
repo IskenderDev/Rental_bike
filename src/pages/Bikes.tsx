@@ -44,13 +44,14 @@ const Bikes = () => {
 		}
 	}
 
-	// Set initial state based on URL query parameters
-	useEffect(() => {
-		const { brand, category, searchTerm } = getQueryParams()
-		setBrand(brand)
-		setCategory(category)
-		setSearchTerm(searchTerm)
-	}, [location.search])
+        // Set initial state based on URL query parameters
+        useEffect(() => {
+                const { brand, category, searchTerm } = getQueryParams()
+                setBrand(brand)
+                setCategory(category)
+                setSearchTerm(searchTerm)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [location.search])
 
 	// Update filter parameters when brand, category, or searchTerm changes
 	useEffect(() => {

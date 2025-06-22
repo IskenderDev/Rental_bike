@@ -39,12 +39,12 @@ const Login = () => {
         const navigate = useNavigate()
 
         const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-                const toastId = toast.loading("Logging in...")
+                const toastId = toast.loading("Вход...")
 
                 const result = loginUser(data.email, data.password)
 
                 if (result.success && result.user) {
-                        toast.success("Login successful", { id: toastId })
+                        toast.success("Успешный вход", { id: toastId })
                         const userInfo = {
                                 id: result.user.email,
                                 role: result.user.role,
@@ -54,7 +54,7 @@ const Login = () => {
                         dispatch(setUser({ user: userInfo, token: 'local-auth' }))
                         navigate("/dashboard")
                 } else {
-                        toast.error(result.message || "Invalid credentials", { id: toastId })
+                        toast.error(result.message || "Неверные учетные данные", { id: toastId })
                 }
         }
 
@@ -65,14 +65,14 @@ const Login = () => {
                                         <CardTitle className="text-2xl font-orbitron tracking-wider">
                                                 {t('signIn')}
                                         </CardTitle>
-					<CardDescription className="font-inter">
-						Enter your email and password below to login to your account
+                                        <CardDescription className="font-inter">
+                                                Введите электронную почту и пароль, чтобы войти в аккаунт
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
 					<form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
 						<div className="grid gap-2">
-							<Label htmlFor="email">Email</Label>
+                                                        <Label htmlFor="email">Электронная почта</Label>
 							<Controller
 								name="email"
 								control={control}
@@ -81,7 +81,7 @@ const Login = () => {
 									<>
 										<Input
 											{...field}
-											placeholder="example@gmail.com"
+                                                                               placeholder="пример@gmail.com"
 											type="email"
 										/>
 										{errors.email?.message && (
@@ -95,12 +95,12 @@ const Login = () => {
 						</div>
 						<div className="grid gap-2 relative">
 							<div className="flex items-center">
-								<Label htmlFor="password">Password</Label>
+                                                                <Label htmlFor="password">Пароль</Label>
 								<Link
 									to="#"
 									className="ml-auto inline-block text-sm underline hover:text-accent-foreground duration-300"
 								>
-									Forgot your password?
+                                                                Забыли пароль?
 								</Link>
 							</div>
 							<Controller
@@ -145,7 +145,7 @@ const Login = () => {
 						</Button>
 					</div> */}
 					<div className="mt-4 text-center text-sm">
-						Don&apos;t have an account?
+                                                Нет аккаунта?
                                                 <Link
                                                         to="/registration"
                                                         className="underline hover:text-accent-foreground duration-300"

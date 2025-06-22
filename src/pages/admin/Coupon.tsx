@@ -23,7 +23,7 @@ const Coupon = () => {
 	const { control, handleSubmit } = useForm({})
 
 	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Coupon creating...")
+                const toastId = toast.loading("Создание купона...")
 
 		const couponData = {
 			...data,
@@ -34,7 +34,7 @@ const Coupon = () => {
 			const res = await createCoupon(couponData).unwrap()
 			toast.success(res.message, { id: toastId })
 		} catch (error) {
-			toast.error("Coupon create failed...", { id: toastId })
+                        toast.error("Не удалось создать купон...", { id: toastId })
 		}
 	}
 

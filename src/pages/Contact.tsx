@@ -58,8 +58,8 @@ const Contact = () => {
 							<Card className="rounded-none">
 								<CardHeader>
 									<div>
-										<h2 className="text-2xl font-orbitron font-medium">
-											Contact Us for Any Questions
+                                                                        <h2 className="text-2xl font-orbitron font-medium">
+                                                                               Свяжитесь с нами по любым вопросам
 										</h2>
 									</div>
 								</CardHeader>
@@ -67,62 +67,62 @@ const Contact = () => {
 									<form className="space-y-5 font-inter">
 										<div className="flex gap-5">
 											<div className="grid w-full max-w-sm items-center gap-1.5">
-												<Label
-													htmlFor="firsName"
-													className="font-normal text-lg"
-												>
-													First Name
+                                                                               <Label
+                                                                               htmlFor="firsName"
+                                                                               className="font-normal text-lg"
+                                                                               >
+                                                                               Имя
 												</Label>
 												<Input
 													type="text"
 													id="firsName"
-													placeholder="First Name"
+                                                                               placeholder="Имя"
 												/>
 											</div>
 											<div className="grid w-full max-w-sm items-center gap-1.5">
-												<Label
-													htmlFor="lastName"
-													className="font-normal text-lg"
-												>
-													Last Name
+                                                                               <Label
+                                                                               htmlFor="lastName"
+                                                                               className="font-normal text-lg"
+                                                                               >
+                                                                               Фамилия
 												</Label>
 												<Input
 													type="text"
 													id="lastName"
-													placeholder="Last Name"
+                                                                               placeholder="Фамилия"
 												/>
 											</div>
 										</div>
 										<div className="flex gap-5">
 											<div className="grid w-full max-w-sm items-center gap-1.5">
-												<Label htmlFor="phone" className="font-normal text-lg">
-													Phone Number
+                                                                               <Label htmlFor="phone" className="font-normal text-lg">
+                                                                               Номер телефона
 												</Label>
 												<Input
 													type="phone"
 													id="phone"
-													placeholder="Phone Number"
+                                                                               placeholder="Номер телефона"
 												/>
 											</div>
 											<div className="grid w-full max-w-sm items-center gap-1.5">
-												<Label htmlFor="email" className="font-normal text-lg">
-													Email
+                                                                               <Label htmlFor="email" className="font-normal text-lg">
+                                                                               Электронная почта
 												</Label>
-												<Input type="email" id="email" placeholder="Email" />
+                                                                               <Input type="email" id="email" placeholder="Электронная почта" />
 											</div>
 										</div>
 										<div className="grid w-full gap-1.5">
-											<Label htmlFor="message" className="font-normal text-lg">
-												Your message
+                                                                               <Label htmlFor="message" className="font-normal text-lg">
+                                                                               Ваше сообщение
 											</Label>
 											<Textarea
-												placeholder="Type your message here."
+                                                                               placeholder="Введите ваше сообщение"
 												id="message"
 											/>
 										</div>
 										<div>
-											<Button className="bg-accent-foreground font-orbitron tracking-wider">
-												Send Message
+                                                                               <Button className="bg-accent-foreground font-orbitron tracking-wider">
+                                                                               Отправить сообщение
 											</Button>
 										</div>
 									</form>
