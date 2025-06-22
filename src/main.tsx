@@ -8,6 +8,13 @@ import router from "./router/index.tsx"
 import { PersistGate } from "redux-persist/integration/react"
 import { Toaster } from "sonner"
 import { ThemeProvider } from "./components/theme/theme-provider.tsx"
+import defaultBikes from "./data/defaultBikes.json"
+import { getItem, setItem } from "./utils/localStorage"
+import { TBike } from "./types/bikes.type"
+
+if (!getItem<TBike[]>("bikes")) {
+  setItem("bikes", defaultBikes)
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
