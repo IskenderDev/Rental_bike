@@ -11,10 +11,8 @@ import {
 	Youtube,
 } from "lucide-react"
 import { NavLink } from "react-router-dom"
-import { useTranslation } from "react-i18next"
 
 const Footer = () => {
-        const { t } = useTranslation()
         return (
 		<div>
 			<div className="w-full bg-[#222222] py-14">
@@ -63,11 +61,11 @@ const Footer = () => {
 							</h2>
 							<span className="w-28 h-[2px] bg-accent-foreground absolute"></span>
 							<div className="mt-5 flex flex-col gap-4 font-inter text-[#aaaaaa] ">
-                                                                <NavLinks link={"/about-us"} label={t('aboutUs')} />
+                                                                <NavLinks link={"/about-us"} label={"О нас"} />
 								<NavLinks link={"/bikes"} label={"Bikes"} />
 								<NavLinks link={"/services"} label={"Our Services"} />
 								<NavLinks link={"/blogs"} label={"Blogs"} />
-                                                                <NavLinks link={"/contact-us"} label={t('contactUs')} />
+                                                                <NavLinks link={"/contact-us"} label={"Связаться с нами"} />
 							</div>
 						</div>
 

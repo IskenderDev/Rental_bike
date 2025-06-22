@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
-import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -24,7 +23,6 @@ import { userSchema } from "@/schemas/userSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const Register = () => {
-        const { t } = useTranslation()
         const [showPassword, setShowPassword] = useState(false)
         const navigate = useNavigate()
 
@@ -57,7 +55,7 @@ const Register = () => {
 			<Card className="mx-auto w-[550px]">
 				<CardHeader>
                                         <CardTitle className="text-2xl font-orbitron tracking-wider">
-                                                {t('signUp')}
+                                                Регистрация
                                         </CardTitle>
 					<CardDescription className="font-inter">
 						Enter your information below to create to your account!
@@ -232,7 +230,7 @@ const Register = () => {
                                                         type="submit"
                                                         className="w-full font-orbitron tracking-wider"
                                                 >
-                                                        {t('signUp')}
+                                                        Регистрация
                                                 </Button>
 					</form>
 
@@ -252,7 +250,7 @@ const Register = () => {
                                                         to="/login"
                                                         className="underline hover:text-accent-foreground duration-300"
                                                 >
-                                                        {t('signIn')}
+                                                        Войти
                                                 </Link>
 					</div>
 				</CardContent>
