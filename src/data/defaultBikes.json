@@ -2,7 +2,7 @@
   {
     "_id": "1",
     "name": "Yamaha YZF-R3",
-    "description": "Lightweight sport bike",
+    "description": "Лёгкий спортивный мотоцикл",
     "pricePerHour": 25,
     "isAvailable": true,
     "cc": 321,
@@ -22,7 +22,7 @@
   {
     "_id": "2",
     "name": "Honda CB500X",
-    "description": "Adventure touring bike",
+    "description": "Приключенческий туристический мотоцикл",
     "pricePerHour": 20,
     "isAvailable": true,
     "cc": 471,
@@ -42,7 +42,7 @@
   {
     "_id": "3",
     "name": "Kawasaki Ninja 400",
-    "description": "Compact and sporty",
+    "description": "Компактный и спортивный",
     "pricePerHour": 22,
     "isAvailable": true,
     "cc": 399,
@@ -62,7 +62,7 @@
   {
     "_id": "4",
     "name": "Trek FX 3",
-    "description": "Versatile hybrid bike",
+    "description": "Универсальный гибридный велосипед",
     "pricePerHour": 15,
     "isAvailable": true,
     "cc": 0,
