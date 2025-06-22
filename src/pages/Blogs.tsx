@@ -21,12 +21,12 @@ const Blogs = () => {
 				<div className="grid grid-cols-3 gap-10">
 					<Card className="action-hover overflow-hidden rounded-none ">
 						<CardHeader className="p-0 relative ">
-							<img
-								src={
-									"https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
-								}
-								alt=""
-							/>
+                                                        <img
+                                                                src={
+                                                                        "https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
+                                                                }
+                                                                alt="Изображение блога"
+                                                        />
 						</CardHeader>
 						<CardContent className="space-y-2 pt-2 z-10 relative bg-white dark:bg-[#020817]">
 							<p className=" text-gray-400 font-inter font-light text-sm italic tracking-wider">
@@ -53,12 +53,12 @@ const Blogs = () => {
 					</Card>
 					<Card className="action-hover overflow-hidden rounded-none ">
 						<CardHeader className="p-0 relative ">
-							<img
-								src={
-									"https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
-								}
-								alt=""
-							/>
+                                                        <img
+                                                                src={
+                                                                        "https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
+                                                                }
+                                                                alt="Изображение блога"
+                                                        />
 						</CardHeader>
 						<CardContent className="space-y-2 pt-2 z-10 relative bg-white dark:bg-[#020817]">
 							<p className=" text-gray-400 font-inter font-light text-sm italic tracking-wider">
@@ -85,12 +85,12 @@ const Blogs = () => {
 					</Card>
 					<Card className="action-hover overflow-hidden rounded-none ">
 						<CardHeader className="p-0 relative ">
-							<img
-								src={
-									"https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
-								}
-								alt=""
-							/>
+                                                        <img
+                                                                src={
+                                                                        "https://probike.templaza.net/wp-content/uploads/2023/07/paul-green-gOHfFgwyDNM-unsplash.jpg"
+                                                                }
+                                                                alt="Изображение блога"
+                                                        />
 						</CardHeader>
 						<CardContent className="space-y-2 pt-2 z-10 relative bg-white dark:bg-[#020817]">
 							<p className=" text-gray-400 font-inter font-light text-sm italic tracking-wider">

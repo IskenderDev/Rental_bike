@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import {
@@ -148,17 +147,17 @@ const ReturnBike = () => {
 						</Table>
 					) : (
 						<>
-							<div className="w-1/3 py-20 mx-auto col-span-full">
-								<img
-									src="https://i.ibb.co/2hx2jQf/folder.png"
-									alt=""
-									width={"300px"}
-									className="mx-auto"
-								/>
-								<h2 className="text-center font-orbitron lg:text-5xl md:text-3xl text-xl font-bold">
-									Bike not found
-								</h2>
-							</div>
+                                                        <div className="w-1/3 py-20 mx-auto col-span-full">
+                                                                <img
+                                                                        src="https://i.ibb.co/2hx2jQf/folder.png"
+                                                                        alt="Нет данных"
+                                                                        width={"300px"}
+                                                                        className="mx-auto"
+                                                                />
+                                                                <h2 className="text-center font-orbitron lg:text-5xl md:text-3xl text-xl font-bold">
+                                                                        Велосипеды не найдены
+                                                                </h2>
+                                                        </div>
 						</>
 					)}
 				</CardContent>

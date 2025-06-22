@@ -197,9 +197,9 @@ const BikeDetails = () => {
 								<Share2 className="mr-2 size-4" /> Share This Bike
 							</Button>
 						</div>
-						<div>
-							<img src={bike.image} alt="" />
-						</div>
+                                                <div>
+                                                        <img src={bike.image} alt="Изображение велосипеда" />
+                                                </div>
 						<div className="space-y-5">
 							<h2 className="text-4xl font-orbitron font-bold">Description</h2>
 							<p className="font-inter">{bike.description}</p>

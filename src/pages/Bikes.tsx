@@ -99,23 +99,23 @@ const Bikes = () => {
 	return (
 		<div>
 			<div className="bg-about-us bg-bottom h-64 flex justify-center items-center">
-				<h1 className="text-5xl font-orbitron font-bold dark:text-black">
-					Our Bikes
-				</h1>
+                                <h1 className="text-5xl font-orbitron font-bold dark:text-black">
+                                        Наши велосипеды
+                                </h1>
 			</div>
 			<div className="max-w-6xl mx-auto -mt-16 z-20">
 				<Card className="rounded-none shadow-xl">
 					<CardContent className="items-center p-12">
 						<div className="grid lg:grid-cols-4 grid-cols-2 md:gap-5 gap-2">
 							<div className="flex flex-col gap-3">
-								<h2 className="self-start font-medium font-orbitron md:text-base text-sm">
-									Search Bikes
-								</h2>
+                                                                <h2 className="self-start font-medium font-orbitron md:text-base text-sm">
+                                                                        Поиск велосипедов
+                                                                </h2>
 								<div className="relative ml-auto flex-1 md:grow-0 w-full text-inter">
 									<Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
 									<Input
 										type="search"
-										placeholder="Search..."
+                                                                               placeholder="Поиск..."
 										className="w-full bg-background pl-8"
 										value={searchTerm}
 										onChange={handleChange}
@@ -124,33 +124,33 @@ const Bikes = () => {
 							</div>
 
 							<div className="flex flex-col gap-3">
-								<h2 className="self-start font-medium font-orbitron md:text-base text-sm">
-									Filter by Category
-								</h2>
+                                                                <h2 className="self-start font-medium font-orbitron md:text-base text-sm">
+                                                                        Фильтр по категории
+                                                                </h2>
 								<div className="w-full md:w-auto mb-2 md:mb-0 rounded-full font-inter">
 									<Select
 										onValueChange={(value) => setCategory(value)}
 										value={category}
 									>
 										<SelectTrigger>
-											<SelectValue placeholder="Select A Category" />
+                                                                               <SelectValue placeholder="Выберите категорию" />
 										</SelectTrigger>
 										<SelectContent>
 											<SelectGroup>
-												<SelectLabel>Categories</SelectLabel>
-												<SelectItem value="road_bike">Road Bike</SelectItem>
-												<SelectItem value="mountain_bike">
-													Mountain Bike
-												</SelectItem>
-												<SelectItem value="hybrid_bike">Hybrid Bike</SelectItem>
-												<SelectItem value="cruiser_bike">
-													Cruiser Bike
-												</SelectItem>
-												<SelectItem value="electric_bike">
-													Electric Bike
-												</SelectItem>
-												<SelectItem value="bmx_bike">BMX Bike</SelectItem>
-												<SelectItem value="gravel_bike">Gravel Bike</SelectItem>
+                                                                               <SelectLabel>Категории</SelectLabel>
+                                                                               <SelectItem value="road_bike">Шоссейный</SelectItem>
+                                                                               <SelectItem value="mountain_bike">
+                                                                               Горный велосипед
+                                                                               </SelectItem>
+                                                                               <SelectItem value="hybrid_bike">Гибридный</SelectItem>
+                                                                               <SelectItem value="cruiser_bike">
+                                                                               Круизер
+                                                                               </SelectItem>
+                                                                               <SelectItem value="electric_bike">
+                                                                               Электровелосипед
+                                                                               </SelectItem>
+                                                                               <SelectItem value="bmx_bike">BMX</SelectItem>
+                                                                               <SelectItem value="gravel_bike">Гравийный</SelectItem>
 											</SelectGroup>
 										</SelectContent>
 									</Select>
@@ -158,27 +158,27 @@ const Bikes = () => {
 							</div>
 
 							<div className="flex flex-col gap-3">
-								<h2 className="self-start font-medium font-orbitron md:text-base text-sm">
-									Filter by Brand
-								</h2>
+                                                                <h2 className="self-start font-medium font-orbitron md:text-base text-sm">
+                                                                        Фильтр по бренду
+                                                                </h2>
 								<div className="w-full rounded-full md:w-auto mb-2 md:mb-0 font-inter">
 									<Select
 										onValueChange={(value) => setBrand(value)}
 										value={brand}
 									>
 										<SelectTrigger>
-											<SelectValue placeholder="Select A Brand" />
+                                                                               <SelectValue placeholder="Выберите бренд" />
 										</SelectTrigger>
 										<SelectContent>
 											<SelectGroup>
-												<SelectLabel>Brands</SelectLabel>
-												<SelectItem value="trek">Trek</SelectItem>
-												<SelectItem value="specialized">Specialized</SelectItem>
-												<SelectItem value="giant">Giant</SelectItem>
-												<SelectItem value="cannondale">Cannondale</SelectItem>
-												<SelectItem value="scott">Scott</SelectItem>
-												<SelectItem value="santa_cruz">Santa Cruz</SelectItem>
-												<SelectItem value="bianchi">Bianchi</SelectItem>
+                                                                               <SelectLabel>Бренды</SelectLabel>
+                                                                               <SelectItem value="trek">Trek</SelectItem>
+                                                                               <SelectItem value="specialized">Specialized</SelectItem>
+                                                                               <SelectItem value="giant">Giant</SelectItem>
+                                                                               <SelectItem value="cannondale">Cannondale</SelectItem>
+                                                                               <SelectItem value="scott">Scott</SelectItem>
+                                                                               <SelectItem value="santa_cruz">Santa Cruz</SelectItem>
+                                                                               <SelectItem value="bianchi">Bianchi</SelectItem>
 											</SelectGroup>
 										</SelectContent>
 									</Select>
@@ -189,7 +189,7 @@ const Bikes = () => {
 								onClick={handleResetFilter}
 								className="bg-accent-foreground hover:bg-gray-200 hover:text-black w-full font-orbitron tracking-wider self-end"
 							>
-								Reset Filter
+                                                                Сбросить фильтры
 							</Button>
 						</div>
 						{/* <Button
@@ -210,15 +210,15 @@ const Bikes = () => {
 							))
 						) : (
 							<div className="w-1/3 py-20 mx-auto col-span-full">
-								<img
-									src="https://i.ibb.co/2hx2jQf/folder.png"
-									alt=""
-									width={"300px"}
-									className="mx-auto"
-								/>
-								<h2 className="text-center font-orbitron lg:text-5xl md:text-3xl text-xl font-bold">
-									Bike not found
-								</h2>
+                                                                <img
+                                                                        src="https://i.ibb.co/2hx2jQf/folder.png"
+                                                                        alt="Нет данных"
+                                                                        width={"300px"}
+                                                                        className="mx-auto"
+                                                                />
+                                                                <h2 className="text-center font-orbitron lg:text-5xl md:text-3xl text-xl font-bold">
+                                                                        Велосипеды не найдены
+                                                                </h2>
 							</div>
 						)}
 					</div>
