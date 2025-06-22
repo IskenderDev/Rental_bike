@@ -59,54 +59,54 @@ const Footer = () => {
 
 						<div className="relative">
 							<h2 className="text-xl font-bold mb-2 uppercase font-orbitron text-white">
-								Our Company
+								Наша компания
 							</h2>
 							<span className="w-28 h-[2px] bg-accent-foreground absolute"></span>
 							<div className="mt-5 flex flex-col gap-4 font-inter text-[#aaaaaa] ">
                                                                 <NavLinks link={"/about-us"} label={t('aboutUs')} />
-								<NavLinks link={"/bikes"} label={"Bikes"} />
-								<NavLinks link={"/services"} label={"Our Services"} />
-								<NavLinks link={"/blogs"} label={"Blogs"} />
+								<NavLinks link={"/bikes"} label={"Велосипеды"} />
+								<NavLinks link={"/services"} label={"Наши услуги"} />
+								<NavLinks link={"/blogs"} label={"Блог"} />
                                                                 <NavLinks link={"/contact-us"} label={t('contactUs')} />
 							</div>
 						</div>
 
 						<div className="relative">
 							<h2 className="text-xl font-bold mb-2 uppercase font-orbitron text-white">
-								Help Center
+								Центр помощи
 							</h2>
 							<span className="w-28 h-[2px] bg-accent-foreground absolute"></span>
 							<div className="mt-5 flex flex-col gap-4 font-inter text-[#aaaaaa]">
-								<NavLinks link={"/"} label={"Terms & Conditions"} />
-								<NavLinks link={"/privacy-policy"} label={"Privacy Policy"} />
-								<NavLinks link={"/team"} label={"Our Team"} />
-								<NavLinks link={"/services"} label={"Services"} />
+								<NavLinks link={"/"} label={"Условия и положения"} />
+								<NavLinks link={"/privacy-policy"} label={"Политика конфиденциальности"} />
+								<NavLinks link={"/team"} label={"Наша команда"} />
+								<NavLinks link={"/services"} label={"Услуги"} />
 							</div>
 						</div>
 
 						<div className="relative md:col-span-1 col-span-2">
 							<h2 className="text-xl font-bold mb-2 uppercase font-orbitron text-white">
-								Stay Connected
+								Оставайтесь на связи
 							</h2>
 							<span className="w-28 h-[2px] bg-accent-foreground absolute"></span>
 							<div className="mt-5 font-inter space-y-2 text-[#aaaaaa]">
-								<h3 className="text-lg font-medium">Newsletter</h3>
+								<h3 className="text-lg font-medium">Рассылка новостей</h3>
 								<p className="text-sm">
-									Sign up for our newsletter and stay up-to-date with the latest
-									collection, the latest trends and the best deals!
+									Подпишитесь на нашу рассылку, чтобы быть в курсе последних
+									коллекций, трендов и лучших предложений!
 								</p>
 								<div className="flex flex-col w-full max-w-sm items-center space-y-2 mt-2">
-									<Input type="email" placeholder="Enter Your Email" />
+									<Input type="email" placeholder="Введите свой email" />
 									<Button
 										type="submit"
 										className="bg-accent-foreground hover:bg-gray-200 hover:text-black w-full font-orbitron tracking-wider"
 									>
-										Subscribe
+										Подписаться
 									</Button>
 								</div>
 							</div>
 							<div className="mt-5">
-								<h3 className="text-lg font-bold text-[#aaaaaa]">Follow Us</h3>
+								<h3 className="text-lg font-bold text-[#aaaaaa]">Подписывайтесь на нас</h3>
 								<div className="flex w-full max-w-sm items-center space-x-5 mt-2 text-white">
 									<Facebook className="size-6 hover:text-accent-foreground duration-300 cursor-pointer" />
 									<Instagram className="size-6 hover:text-accent-foreground duration-300 cursor-pointer" />
@@ -122,7 +122,7 @@ const Footer = () => {
 				<div className="container">
 					<div className="grid lg:grid-cols-2 grid-cols-1 lg:justify-between justify-center gap-5">
 						<div className="text-sm lg:text-left text-center font-inter">
-							COPYRIGHT © 2024, ALL RIGHTS RESERVED. POWERED BY{" "}
+							© 2024 Все права защищены. Разработано{" "}
 							<NavLink to={"/"} className={"font-bold"}>
 								PROBIKE
 							</NavLink>

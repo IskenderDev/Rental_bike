@@ -100,7 +100,7 @@ const Header = () => {
 								<NavigationMenuList className="font-inter">
 									<NavigationMenuItem>
 										<NavLink to={"/"} className={navigationMenuTriggerStyle()}>
-											Home
+											Главная
 										</NavLink>
 									</NavigationMenuItem>
 
@@ -109,7 +109,7 @@ const Header = () => {
 											to={"/bikes"}
 											className={navigationMenuTriggerStyle()}
 										>
-											Bikes
+											Велосипеды
 										</NavLink>
 									</NavigationMenuItem>
 									<NavigationMenuItem>
@@ -117,7 +117,7 @@ const Header = () => {
 											to={"/blogs"}
 											className={navigationMenuTriggerStyle()}
 										>
-											Blogs
+											Блог
 										</NavLink>
 									</NavigationMenuItem>
 									<NavigationMenuItem>
@@ -164,7 +164,7 @@ const Header = () => {
 													to={"/"}
 													className={navigationMenuTriggerStyle()}
 												>
-													Home
+													Главная
 												</NavLink>
 											</NavigationMenuItem>
 
@@ -173,7 +173,7 @@ const Header = () => {
 													to={"/bikes"}
 													className={navigationMenuTriggerStyle()}
 												>
-													Bikes
+													Велосипеды
 												</NavLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
@@ -181,7 +181,7 @@ const Header = () => {
 													to={"/blogs"}
 													className={navigationMenuTriggerStyle()}
 												>
-													Blogs
+													Блог
 												</NavLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
@@ -237,17 +237,17 @@ const Header = () => {
 										<DialogContent className="sm:max-w-[425px]">
 											<DialogHeader>
 												<DialogTitle className="font-orbitron text-xl">
-													Search Bike
+													Поиск велосипеда
 												</DialogTitle>
 												<DialogDescription>
-													Search your favorite bike and enjoy your ride.
+													Найдите свой любимый велосипед и наслаждайтесь поездкой.
 												</DialogDescription>
 											</DialogHeader>
 											<div className="grid gap-4 py-4">
 												<div className="">
 													<Input
 														id="name"
-														placeholder="Search bike..."
+														placeholder="Поиск велосипеда..."
 														className=""
 														value={searchTerm}
 														onChange={(e) => setSearchTerm(e.target.value)}
@@ -259,7 +259,7 @@ const Header = () => {
 													className="bg-accent-foreground w-full font-orbitron tracking-wider px-10"
 													onClick={handleSearch}
 												>
-													Search
+													Поиск
 												</Button>
 											</DialogFooter>
 										</DialogContent>
@@ -300,33 +300,33 @@ const Header = () => {
 												align="end"
 												className="w-56 transform-none"
 											>
-												<DropdownMenuLabel>My Account</DropdownMenuLabel>
+												<DropdownMenuLabel>Мой аккаунт</DropdownMenuLabel>
 												<DropdownMenuSeparator />
 												<DropdownMenuGroup>
 													<DropdownMenuItem>
 														<LayoutDashboard className="mr-2 h-4 w-4" />
-														<NavLink to={"/dashboard"}>Dashboard</NavLink>
+														<NavLink to={"/dashboard"}>Панель управления</NavLink>
 													</DropdownMenuItem>
 													<DropdownMenuItem>
 														<User className="mr-2 h-4 w-4" />
 														<NavLink to={"/dashboard/my-profile"}>
-															Profile
+															Профиль
 														</NavLink>
 													</DropdownMenuItem>
 													<DropdownMenuItem>
 														<CreditCard className="mr-2 h-4 w-4" />
-														<span>Billing</span>
+														<span>Оплата</span>
 													</DropdownMenuItem>
 													<DropdownMenuItem>
 														<Settings className="mr-2 h-4 w-4" />
-														<span>Settings</span>
+														<span>Настройки</span>
 													</DropdownMenuItem>
 												</DropdownMenuGroup>
 												<DropdownMenuSeparator />
 
 												<DropdownMenuItem>
 													<LifeBuoy className="mr-2 h-4 w-4" />
-													<span>Support</span>
+													<span>Поддержка</span>
 												</DropdownMenuItem>
 
 												<DropdownMenuSeparator />
@@ -336,7 +336,7 @@ const Header = () => {
 														onClick={handleLogout}
 														className="bg-transparent p-0 hover:bg-transparent text-black hover:text-accent-foreground dark:text-white"
 													>
-														Log out
+														Выйти
 													</Button>
 												</DropdownMenuItem>
 											</DropdownMenuContent>
@@ -348,7 +348,7 @@ const Header = () => {
 											type="submit"
 											className="bg-accent-foreground w-full font-orbitron tracking-wider px-10"
 										>
-											LogIn
+											Войти
 										</Button>
 									</NavLink>
 								)}
