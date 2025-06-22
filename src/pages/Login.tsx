@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -25,7 +26,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { loginSchema } from "@/schemas/userSchema"
 
 const Login = () => {
-	const [showPassword, setShowPassword] = useState(false)
+        const { t } = useTranslation()
+        const [showPassword, setShowPassword] = useState(false)
 	const {
 		control,
 		handleSubmit,
@@ -60,9 +62,9 @@ const Login = () => {
 		<div className="min-h-[calc(100vh-90px)] grid grid-cols-1 items-center">
 			<Card className="mx-auto max-w-sm">
 				<CardHeader>
-					<CardTitle className="text-2xl font-orbitron tracking-wider">
-						Sign In
-					</CardTitle>
+                                        <CardTitle className="text-2xl font-orbitron tracking-wider">
+                                                {t('signIn')}
+                                        </CardTitle>
 					<CardDescription className="font-inter">
 						Enter your email and password below to login to your account
 					</CardDescription>
@@ -127,12 +129,12 @@ const Login = () => {
 								{showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
 							</span>
 						</div>
-						<Button
-							type="submit"
-							className="w-full font-orbitron tracking-wider"
-						>
-							Sign In
-						</Button>
+                                                <Button
+                                                        type="submit"
+                                                        className="w-full font-orbitron tracking-wider"
+                                                >
+                                                        {t('signIn')}
+                                                </Button>
 					</form>
 					{/* <div className="grid grid-cols-2 gap-2 font-inter mt-2">
 						<Button variant="outline" className="w-full gap-2">
@@ -144,12 +146,12 @@ const Login = () => {
 					</div> */}
 					<div className="mt-4 text-center text-sm">
 						Don&apos;t have an account?
-						<Link
-							to="/registration"
-							className="underline hover:text-accent-foreground duration-300"
-						>
-							Sign up
-						</Link>
+                                                <Link
+                                                        to="/registration"
+                                                        className="underline hover:text-accent-foreground duration-300"
+                                                >
+                                                        {t('signUp')}
+                                                </Link>
 					</div>
 				</CardContent>
 			</Card>

@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -23,7 +24,8 @@ import { userSchema } from "@/schemas/userSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const Register = () => {
-	const [showPassword, setShowPassword] = useState(false)
+        const { t } = useTranslation()
+        const [showPassword, setShowPassword] = useState(false)
         const navigate = useNavigate()
 
 	const {
@@ -54,9 +56,9 @@ const Register = () => {
 		<div className="min-h-[calc(100vh-90px)] grid grid-cols-1 items-center">
 			<Card className="mx-auto w-[550px]">
 				<CardHeader>
-					<CardTitle className="text-2xl font-orbitron tracking-wider">
-						Sign Up
-					</CardTitle>
+                                        <CardTitle className="text-2xl font-orbitron tracking-wider">
+                                                {t('signUp')}
+                                        </CardTitle>
 					<CardDescription className="font-inter">
 						Enter your information below to create to your account!
 					</CardDescription>
@@ -226,12 +228,12 @@ const Register = () => {
 								{showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
 							</span>
 						</div>
-						<Button
-							type="submit"
-							className="w-full font-orbitron tracking-wider"
-						>
-							Sign Up
-						</Button>
+                                                <Button
+                                                        type="submit"
+                                                        className="w-full font-orbitron tracking-wider"
+                                                >
+                                                        {t('signUp')}
+                                                </Button>
 					</form>
 
 					{/* <div className="grid grid-cols-2 gap-2 font-inter mt-2">
@@ -246,12 +248,12 @@ const Register = () => {
 					</div> */}
 					<div className="mt-4 text-center text-sm">
 						Already have an account?
-						<Link
-							to="/login"
-							className="underline hover:text-accent-foreground duration-300"
-						>
-							Sign In
-						</Link>
+                                                <Link
+                                                        to="/login"
+                                                        className="underline hover:text-accent-foreground duration-300"
+                                                >
+                                                        {t('signIn')}
+                                                </Link>
 					</div>
 				</CardContent>
 			</Card>
