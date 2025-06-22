@@ -39,6 +39,7 @@ import {
 import { logoutUser } from "@/utils/localAuth"
 import { currentCompareData } from "@/redux/features/bike/bikeSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hook"
+import { useTranslation } from "react-i18next"
 import {
 	CreditCard,
 	LayoutDashboard,
@@ -55,7 +56,8 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 const Header = () => {
-	const { theme } = useTheme()
+        const { t } = useTranslation()
+        const { theme } = useTheme()
 	const dispatch = useAppDispatch()
 	const token = useAppSelector(currentToken)
 	const bikes = useAppSelector(currentCompareData)
@@ -123,7 +125,7 @@ const Header = () => {
 											to={"/about-us"}
 											className={navigationMenuTriggerStyle()}
 										>
-											About Us
+                                                                               {t('aboutUs')}
 										</NavLink>
 									</NavigationMenuItem>
 									<NavigationMenuItem>
@@ -131,7 +133,7 @@ const Header = () => {
 											to={"/contact-us"}
 											className={navigationMenuTriggerStyle()}
 										>
-											Contact Us
+                                                                               {t('contactUs')}
 										</NavLink>
 									</NavigationMenuItem>
 								</NavigationMenuList>
@@ -187,7 +189,7 @@ const Header = () => {
 													to={"/about-us"}
 													className={navigationMenuTriggerStyle()}
 												>
-													About Us
+                                                                               {t('aboutUs')}
 												</NavLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
@@ -195,7 +197,7 @@ const Header = () => {
 													to={"/contact-us"}
 													className={navigationMenuTriggerStyle()}
 												>
-													Contact Us
+                                                                               {t('contactUs')}
 												</NavLink>
 											</NavigationMenuItem>
 										</NavigationMenuList>
