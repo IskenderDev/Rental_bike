@@ -1,5 +1,8 @@
 import baseApi from "@/redux/api/baseApi"
-import { TQueryParam } from "@/types/bikes.type"
+import { TBike, TQueryParam } from "@/types/bikes.type"
+import { getItem } from "@/utils/localStorage"
+
+const STORAGE_KEY = "bikes"
 
 const bikeApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({
@@ -13,32 +16,53 @@ const bikeApi = baseApi.injectEndpoints({
 			},
 			invalidatesTags: ["bike"],
 		}),
-		getBike: builder.query({
-			query: (args) => {
-				const params = new URLSearchParams()
+                getBike: builder.query<{ data: TBike[] }, TQueryParam[] | undefined>({
+                        async queryFn(args) {
+                                try {
+                                        let bikes = getItem<TBike[]>(STORAGE_KEY) || []
 
-				if (args) {
-					args.forEach((item: TQueryParam) => {
-						params.append(item.name, item.value as string)
-					})
-				}
-				return {
-					url: `/bikes?${params.toString()}`,
-					method: "GET",
-					// params: params,
-				}
-			},
-			providesTags: ["bike"],
-		}),
-		getSingleBike: builder.query({
-			query: (id) => {
-				return {
-					url: `/bikes/${id}`,
-					method: "GET",
-				}
-			},
-			providesTags: ["bike"],
-		}),
+                                        if (args) {
+                                                args.forEach((item: TQueryParam) => {
+                                                        const value = String(item.value).toLowerCase()
+                                                        if (item.name === "brand") {
+                                                                bikes = bikes.filter((b) => b.brand.toLowerCase() === value)
+                                                        }
+                                                        if (item.name === "category") {
+                                                                bikes = bikes.filter((b) => b.category.toLowerCase() === value)
+                                                        }
+                                                        if (item.name === "searchTerm") {
+                                                                bikes = bikes.filter((b) =>
+                                                                        b.name.toLowerCase().includes(value) ||
+                                                                        b.description.toLowerCase().includes(value)
+                                                                )
+                                                        }
+                                                })
+                                        }
+
+                                        return { data: { data: bikes } }
+                                } catch (err) {
+                                        return { error: err as unknown as Error }
+                                }
+                        },
+                        providesTags: ["bike"],
+                }),
+                getSingleBike: builder.query<{ data: TBike | undefined }, string | undefined>({
+                        async queryFn(id) {
+                                try {
+                                        const bikes = getItem<TBike[]>(STORAGE_KEY) || []
+                                        const bike = bikes.find((b) => b._id === id)
+
+                                        if (!bike) {
+                                                return { error: new Error("Not found") }
+                                        }
+
+                                        return { data: { data: bike } }
+                                } catch (err) {
+                                        return { error: err as unknown as Error }
+                                }
+                        },
+                        providesTags: ["bike"],
+                }),
 		updateBike: builder.mutation({
 			query: (options) => {
 				return {
