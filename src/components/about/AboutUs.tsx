@@ -1,14 +1,12 @@
 import { Mail, MapPin, PhoneCall } from "lucide-react"
 import { Button } from "../ui/button"
-import { useTranslation } from "react-i18next"
 
 const AboutUs = () => {
-        const { t } = useTranslation()
         return (
 		<div>
 			<div className="bg-about-us bg-bottom h-64 flex justify-center items-center">
                                 <h1 className="text-5xl font-orbitron font-bold dark:text-black">
-                                        {t('aboutUs')}
+                                        О нас
                                 </h1>
 			</div>
 			<div className="container ">

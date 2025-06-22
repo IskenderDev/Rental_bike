@@ -39,7 +39,6 @@ import {
 import { logoutUser } from "@/utils/localAuth"
 import { currentCompareData } from "@/redux/features/bike/bikeSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hook"
-import { useTranslation } from "react-i18next"
 import {
 	CreditCard,
 	LayoutDashboard,
@@ -56,7 +55,6 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 const Header = () => {
-        const { t } = useTranslation()
         const { theme } = useTheme()
 	const dispatch = useAppDispatch()
 	const token = useAppSelector(currentToken)
@@ -125,7 +123,7 @@ const Header = () => {
 											to={"/about-us"}
 											className={navigationMenuTriggerStyle()}
 										>
-                                                                               {t('aboutUs')}
+                                                                               О нас
 										</NavLink>
 									</NavigationMenuItem>
 									<NavigationMenuItem>
@@ -133,7 +131,7 @@ const Header = () => {
 											to={"/contact-us"}
 											className={navigationMenuTriggerStyle()}
 										>
-                                                                               {t('contactUs')}
+                                                                               Связаться с нами
 										</NavLink>
 									</NavigationMenuItem>
 								</NavigationMenuList>
@@ -189,7 +187,7 @@ const Header = () => {
 													to={"/about-us"}
 													className={navigationMenuTriggerStyle()}
 												>
-                                                                               {t('aboutUs')}
+                                                                               О нас
 												</NavLink>
 											</NavigationMenuItem>
 											<NavigationMenuItem>
@@ -197,7 +195,7 @@ const Header = () => {
 													to={"/contact-us"}
 													className={navigationMenuTriggerStyle()}
 												>
-                                                                               {t('contactUs')}
+                                                                               Связаться с нами
 												</NavLink>
 											</NavigationMenuItem>
 										</NavigationMenuList>
