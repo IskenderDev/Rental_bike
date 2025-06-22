@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import authApi from "@/redux/features/auth/authApi"
+import { getCurrentUser } from "@/utils/localAuth"
 import { currentToken } from "@/redux/features/auth/userSlice"
 import { useAppSelector } from "@/redux/hook"
 import {
@@ -21,11 +22,13 @@ import UseAnimations from "react-useanimations"
 import activity from "react-useanimations/lib/activity"
 
 const Profile = () => {
-	const token = useAppSelector(currentToken)
-	const { data, isLoading } = authApi.useGetMeQuery(token, {
-		pollingInterval: 10000,
-	})
-	const user = data?.data
+        const token = useAppSelector(currentToken)
+        const { data, isLoading } = authApi.useGetMeQuery(token, {
+                pollingInterval: 10000,
+                skip: token === 'local-auth',
+        })
+        const localUser = token === 'local-auth' ? getCurrentUser() : null
+        const user = token === 'local-auth' ? localUser : data?.data
 
 	if (isLoading) {
 		return (

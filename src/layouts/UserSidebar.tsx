@@ -3,6 +3,7 @@ import { currentToken, logout } from "@/redux/features/auth/userSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hook"
 import { JwtPayload } from "@/types/user.type"
 import { verifyToken } from "@/utils/verifyToken"
+import { getCurrentUser, logoutUser } from "@/utils/localAuth"
 import {
 	Bike,
 	Cog,
@@ -19,16 +20,22 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 const UserSidebar = () => {
-	const token = useAppSelector(currentToken)
-	const dispatch = useAppDispatch()
-	const navigate = useNavigate()
-	const { role } = verifyToken(token as string) as JwtPayload
+        const token = useAppSelector(currentToken)
+        const dispatch = useAppDispatch()
+        const navigate = useNavigate()
+        const { role } =
+                token === 'local-auth'
+                        ? { role: getCurrentUser()?.role || 'user' }
+                        : (verifyToken(token as string) as JwtPayload)
 
-	const handleLogout = () => {
-		dispatch(logout())
-		toast.success("User logged out successfully!")
-		navigate("/")
-	}
+        const handleLogout = () => {
+                if (token === 'local-auth') {
+                        logoutUser()
+                }
+                dispatch(logout())
+                toast.success("User logged out successfully!")
+                navigate("/")
+        }
 	return (
 		<>
 			<div className="lg:h-auto my-5 border-r bg-muted/40 block lg:p-5 md:p-2 rounded-md">

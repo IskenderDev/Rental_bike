@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import authApi from "@/redux/features/auth/authApi"
 import { useAppSelector } from "@/redux/hook"
+import { getCurrentUser, updateCurrentUser } from "@/utils/localAuth"
 import { Camera } from "lucide-react"
 import {
 	Controller,
@@ -15,10 +16,11 @@ import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 const EditProfile = () => {
-	const token = useAppSelector((state) => state.user.token)
-	const { data: userData } = authApi.useGetMeQuery(token)
-	const [updateMe] = authApi.useUpdateMeMutation()
-	const user = userData?.data
+        const token = useAppSelector((state) => state.user.token)
+        const { data: userData } = authApi.useGetMeQuery(token, { skip: token === 'local-auth' })
+        const [updateMe] = authApi.useUpdateMeMutation()
+        const localUser = token === 'local-auth' ? getCurrentUser() : null
+        const user = token === 'local-auth' ? localUser : userData?.data
 	const navigate = useNavigate()
 	const { control, handleSubmit } = useForm({
 		defaultValues: {
@@ -31,20 +33,26 @@ const EditProfile = () => {
 		},
 	})
 
-	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Singing in...")
-		const userInfo = {
-			data,
-			token,
-		}
-		try {
-			const res = await updateMe(userInfo).unwrap()
-			toast.success(res.message, { id: toastId })
-			navigate("/dashboard/my-profile")
-		} catch (error) {
-			toast.error("Profile Update Process Failed...", { id: toastId })
-		}
-	}
+        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+                const toastId = toast.loading("Updating profile...")
+                if (token === 'local-auth') {
+                        updateCurrentUser(data)
+                        toast.success('Profile updated', { id: toastId })
+                        navigate('/dashboard/my-profile')
+                        return
+                }
+                const userInfo = {
+                        data,
+                        token,
+                }
+                try {
+                        const res = await updateMe(userInfo).unwrap()
+                        toast.success(res.message, { id: toastId })
+                        navigate("/dashboard/my-profile")
+                } catch (error) {
+                        toast.error("Profile Update Process Failed...", { id: toastId })
+                }
+        }
 	return (
 		<div className="pb-28 grid grid-cols-1 items-center">
 			<div className="overflow-hidden rounded-sm bg-white shadow-default dark:border-strokedark dark:bg-boxdark">

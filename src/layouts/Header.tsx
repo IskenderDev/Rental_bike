@@ -29,12 +29,14 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import authApi from "@/redux/features/auth/authApi"
+import { getCurrentUser } from "@/utils/localAuth"
 // import authApi from "@/redux/features/auth/authApi"
 import {
-	currentToken,
-	currentUser,
-	logout,
+        currentToken,
+        currentUser,
+        logout,
 } from "@/redux/features/auth/userSlice"
+import { logoutUser } from "@/utils/localAuth"
 import { currentCompareData } from "@/redux/features/bike/bikeSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hook"
 import {
@@ -58,7 +60,8 @@ const Header = () => {
 	const token = useAppSelector(currentToken)
 	const bikes = useAppSelector(currentCompareData)
 	const user = useAppSelector(currentUser)
-	const { data } = authApi.useGetMeQuery(token)
+        const { data } = authApi.useGetMeQuery(token, { skip: token === 'local-auth' })
+        const localUser = token === 'local-auth' ? getCurrentUser() : null
 	const navigate = useNavigate()
 	const [isOpen, setIsOpen] = useState(false)
 	const [searchTerm, setSearchTerm] = useState("")
@@ -70,17 +73,20 @@ const Header = () => {
 		}
 	}
 
-	const userImage = data?.data?.image
+        const userImage = token === 'local-auth' ? localUser?.image : data?.data?.image
 
-	const handleLogout = async () => {
-		try {
-			dispatch(logout())
-			toast.success("User logged out successfully!")
-			navigate("/")
-		} catch (error) {
-			toast.error("Something went wrong!")
-		}
-	}
+        const handleLogout = async () => {
+                try {
+                        if (token === 'local-auth') {
+                                logoutUser()
+                        }
+                        dispatch(logout())
+                        toast.success("User logged out successfully!")
+                        navigate("/")
+                } catch (error) {
+                        toast.error("Something went wrong!")
+                }
+        }
 
 	return (
 		<>

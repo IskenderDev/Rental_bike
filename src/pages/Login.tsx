@@ -9,7 +9,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
-import { ReactNode, useState } from "react"
+import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -17,18 +17,15 @@ import {
 	FieldValues,
 	Controller,
 } from "react-hook-form"
-import authApi from "@/redux/features/auth/authApi"
+import { loginUser } from "@/utils/localAuth"
 import { toast } from "sonner"
-import { verifyToken } from "@/utils/verifyToken"
 import { useAppDispatch } from "@/redux/hook"
 import { setUser } from "@/redux/features/auth/userSlice"
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query" // Import types
 import { zodResolver } from "@hookform/resolvers/zod"
 import { loginSchema } from "@/schemas/userSchema"
 
 const Login = () => {
 	const [showPassword, setShowPassword] = useState(false)
-	const [login] = authApi.useLoginUserMutation()
 	const {
 		control,
 		handleSubmit,
@@ -36,57 +33,28 @@ const Login = () => {
 	} = useForm({
 		resolver: zodResolver(loginSchema),
 	})
-	const dispatch = useAppDispatch()
-	const navigate = useNavigate()
+        const dispatch = useAppDispatch()
+        const navigate = useNavigate()
 
-	// 	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-	// 		const toastId = toast.loading("Logging in...")
-	// 		try {
-	// 			const res = await login(data)
-	// 			console.log(res)
-	// 			if (res?.data) {
-	// 				toast.success(res.data.message, { id: toastId })
-	// 			} else {
-	// 				return toast.error("Credentials no match", { id: toastId })
-	// 			}
-	//
-	// 			const user = verifyToken(res.data.token)
-	// 			dispatch(setUser({ user: user, token: res.data.token }))
-	//
-	// 			navigate("/dashboard")
-	// 		} catch (error) {
-	// 			toast.error("Login Failed...", { id: toastId })
-	// 		}
-	// 	}
-	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Logging in...")
-		try {
-			const res = await login(data)
+        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+                const toastId = toast.loading("Logging in...")
 
-			if (res?.error) {
-				if (res.error && "data" in res.error) {
-					const error = res.error as FetchBaseQueryError
-					if (
-						error.data &&
-						typeof error.data === "object" &&
-						"message" in error.data
-					) {
-						return toast.error(error.data.message as ReactNode, { id: toastId })
-					}
-				}
-				return toast.error("An unknown error occurred.", { id: toastId })
-			}
+                const result = loginUser(data.email, data.password)
 
-			toast.success(res.data.message, { id: toastId })
-
-			const user = verifyToken(res.data.token)
-			dispatch(setUser({ user: user, token: res.data.token }))
-
-			navigate("/dashboard")
-		} catch (error) {
-			toast.error("An unexpected error occurred...", { id: toastId })
-		}
-	}
+                if (result.success && result.user) {
+                        toast.success("Login successful", { id: toastId })
+                        const userInfo = {
+                                id: result.user.email,
+                                role: result.user.role,
+                                iat: 0,
+                                exp: 0,
+                        }
+                        dispatch(setUser({ user: userInfo, token: 'local-auth' }))
+                        navigate("/dashboard")
+                } else {
+                        toast.error(result.message || "Invalid credentials", { id: toastId })
+                }
+        }
 
 	return (
 		<div className="min-h-[calc(100vh-90px)] grid grid-cols-1 items-center">

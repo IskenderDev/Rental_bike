@@ -2,12 +2,14 @@ import { useAppSelector } from "@/redux/hook"
 import { Button } from "../ui/button"
 import { currentToken } from "@/redux/features/auth/userSlice"
 import authApi from "@/redux/features/auth/authApi"
+import { getCurrentUser } from "@/utils/localAuth"
 
 const Welcome = () => {
-	const token = useAppSelector(currentToken)
-	const { data } = authApi.useGetMeQuery(token, { pollingInterval: 10000 })
+        const token = useAppSelector(currentToken)
+        const { data } = authApi.useGetMeQuery(token, { pollingInterval: 10000, skip: token === 'local-auth' })
+        const localUser = token === 'local-auth' ? getCurrentUser() : null
 
-	const user = data?.data
+        const user = token === 'local-auth' ? localUser : data?.data
 
 	return (
 		<div>
