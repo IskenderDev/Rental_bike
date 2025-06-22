@@ -21,41 +21,41 @@ module.exports = {
 				orbitron: ["Orbitron"],
 				inter: ["Inter"],
 			},
-			colors: {
-				border: "hsl(var(--border))",
-				input: "hsl(var(--input))",
-				ring: "hsl(var(--ring))",
-				background: "hsl(var(--background))",
-				foreground: "hsl(var(--foreground))",
-				primary: {
-					DEFAULT: "hsl(var(--primary))",
-					foreground: "hsl(var(--primary-foreground))",
-				},
-				secondary: {
-					DEFAULT: "hsl(var(--secondary))",
-					foreground: "hsl(var(--secondary-foreground))",
-				},
-				destructive: {
-					DEFAULT: "hsl(var(--destructive))",
-					foreground: "hsl(var(--destructive-foreground))",
-				},
-				muted: {
-					DEFAULT: "hsl(var(--muted))",
-					foreground: "hsl(var(--muted-foreground))",
-				},
-				accent: {
-					DEFAULT: "hsl(var(--accent))",
-					foreground: "rgb(var(--accent-foreground))",
-				},
-				popover: {
-					DEFAULT: "hsl(var(--popover))",
-					foreground: "hsl(var(--popover-foreground))",
-				},
-				card: {
-					DEFAULT: "hsl(var(--card))",
-					foreground: "hsl(var(--card-foreground))",
-				},
-			},
+                        colors: {
+                                border: "hsl(215 28% 88%)",
+                                input: "hsl(215 28% 88%)",
+                                ring: "hsl(262 80% 45%)",
+                                background: "hsl(0 0% 100%)",
+                                foreground: "hsl(232 15% 15%)",
+                                primary: {
+                                        DEFAULT: "hsl(262 80% 55%)",
+                                        foreground: "hsl(0 0% 100%)",
+                                },
+                                secondary: {
+                                        DEFAULT: "hsl(213 95% 62%)",
+                                        foreground: "hsl(0 0% 100%)",
+                                },
+                                destructive: {
+                                        DEFAULT: "hsl(0 72% 55%)",
+                                        foreground: "hsl(0 0% 100%)",
+                                },
+                                muted: {
+                                        DEFAULT: "hsl(216 33% 93%)",
+                                        foreground: "hsl(215.4 16.3% 46.9%)",
+                                },
+                                accent: {
+                                        DEFAULT: "hsl(338 73% 58%)",
+                                        foreground: "hsl(0 0% 100%)",
+                                },
+                                popover: {
+                                        DEFAULT: "hsl(0 0% 100%)",
+                                        foreground: "hsl(232 15% 15%)",
+                                },
+                                card: {
+                                        DEFAULT: "hsl(0 0% 100%)",
+                                        foreground: "hsl(232 15% 15%)",
+                                },
+                        },
 			borderRadius: {
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
