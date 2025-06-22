@@ -17,15 +17,14 @@ import {
 	FieldValues,
 	Controller,
 } from "react-hook-form"
-import authApi from "@/redux/features/auth/authApi"
+import { registerUser, LocalUser } from "@/utils/localAuth"
 import { toast } from "sonner"
 import { userSchema } from "@/schemas/userSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const Register = () => {
 	const [showPassword, setShowPassword] = useState(false)
-	const [registration] = authApi.useRegistrationMutation()
-	const navigate = useNavigate()
+        const navigate = useNavigate()
 
 	const {
 		control,
@@ -35,21 +34,21 @@ const Register = () => {
 		resolver: zodResolver(userSchema),
 	})
 
-	const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-		const toastId = toast.loading("Singing in...")
+        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+                const toastId = toast.loading("Signing up...")
 
-		const userInfo = {
-			...data,
-			role: "user",
-		}
-		try {
-			const res = await registration(userInfo).unwrap()
-			toast.success(res.message, { id: toastId })
-			navigate("/login")
-		} catch (error) {
-			toast.error("Sign Up process Failed...", { id: toastId })
-		}
-	}
+                const userInfo = {
+                        ...data,
+                        role: "user",
+                } as LocalUser
+                const result = registerUser(userInfo)
+                if (result.success) {
+                        toast.success(result.message, { id: toastId })
+                        navigate("/login")
+                } else {
+                        toast.error(result.message, { id: toastId })
+                }
+        }
 
 	return (
 		<div className="min-h-[calc(100vh-90px)] grid grid-cols-1 items-center">
