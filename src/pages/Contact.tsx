@@ -32,11 +32,11 @@ const Contact = () => {
 						>
 							<div>
 								<div className="space-y-3 md:px-0 px-5 text-white">
-									<img
-										src="https://i.ibb.co/vq2CpQr/renroll-1106122708.webp"
-										alt=""
-										className="w-24"
-									/>
+                                                                        <img
+                                                                                src="https://i.ibb.co/vq2CpQr/renroll-1106122708.webp"
+                                                                                alt="Логотип"
+                                                                                className="w-24"
+                                                                        />
 									<h1 className="text-4xl font-orbitron font-bold">
 										Get in touch with our cycling community
 									</h1>

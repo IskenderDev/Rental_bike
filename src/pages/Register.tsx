@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
-import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -24,7 +23,6 @@ import { userSchema } from "@/schemas/userSchema"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 const Register = () => {
-        const { t } = useTranslation()
         const [showPassword, setShowPassword] = useState(false)
         const navigate = useNavigate()
 
@@ -37,7 +35,7 @@ const Register = () => {
 	})
 
         const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-                const toastId = toast.loading("Signing up...")
+                const toastId = toast.loading("Регистрация...")
 
                 const userInfo = {
                         ...data,
@@ -57,17 +55,17 @@ const Register = () => {
 			<Card className="mx-auto w-[550px]">
 				<CardHeader>
                                         <CardTitle className="text-2xl font-orbitron tracking-wider">
-                                                {t('signUp')}
+                                                Регистрация
                                         </CardTitle>
-					<CardDescription className="font-inter">
-						Enter your information below to create to your account!
-					</CardDescription>
+                                        <CardDescription className="font-inter">
+                                                Заполните форму для создания аккаунта
+                                        </CardDescription>
 				</CardHeader>
 				<CardContent className="font-inter">
 					<form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
 						<div className="grid grid-cols-2 gap-2">
 							<div className="grid gap-2">
-								<Label htmlFor="firstName">First Name</Label>
+                                                                <Label htmlFor="firstName">Имя</Label>
 								<Controller
 									name="firstName"
 									control={control}
@@ -78,7 +76,7 @@ const Register = () => {
 												{...field}
 												id="firstName"
 												type="text"
-												placeholder="First Name"
+                                                                               placeholder="Имя"
 											/>
 											{errors.firstName?.message && (
 												<p className="text-red-500 text-xs">
@@ -90,7 +88,7 @@ const Register = () => {
 								/>
 							</div>
 							<div className="grid gap-2">
-								<Label htmlFor="lastName">Last Name</Label>
+                                                                <Label htmlFor="lastName">Фамилия</Label>
 								<Controller
 									name="lastName"
 									control={control}
@@ -101,7 +99,7 @@ const Register = () => {
 												{...field}
 												id="lastName"
 												type="text"
-												placeholder="Last Name"
+                                                                               placeholder="Фамилия"
 											/>
 											{errors.lastName?.message && (
 												<p className="text-red-500 text-xs">
@@ -115,7 +113,7 @@ const Register = () => {
 						</div>
 						<div className="grid grid-cols-2 gap-2">
 							<div className="grid gap-2">
-								<Label htmlFor="phone">Phone Number</Label>
+                                                                <Label htmlFor="phone">Номер телефона</Label>
 								<Controller
 									name="phone"
 									control={control}
@@ -126,7 +124,7 @@ const Register = () => {
 												{...field}
 												id="phone"
 												type="text"
-												placeholder="Phone Number"
+                                                                               placeholder="Номер телефона"
 											/>
 											{errors.phone?.message && (
 												<p className="text-red-500 text-xs">
@@ -138,7 +136,7 @@ const Register = () => {
 								/>
 							</div>
 							<div className="grid gap-2">
-								<Label htmlFor="address">Address</Label>
+                                                                <Label htmlFor="address">Адрес</Label>
 								<Controller
 									name="address"
 									control={control}
@@ -149,7 +147,7 @@ const Register = () => {
 												{...field}
 												id="address"
 												type="text"
-												placeholder="Address"
+                                                                               placeholder="Адрес"
 											/>
 											{errors.address?.message && (
 												<p className="text-red-500 text-xs">
@@ -162,7 +160,7 @@ const Register = () => {
 							</div>
 						</div>
 						<div className="grid gap-2">
-							<Label>Profile Picture</Label>
+                                                        <Label>Фото профиля</Label>
 							<Controller
 								name="image"
 								control={control}
@@ -171,14 +169,14 @@ const Register = () => {
 										<Input
 											{...field}
 											type="text"
-											placeholder="Your profile image link"
+                                                                               placeholder="Ссылка на изображение"
 										/>
 									</>
 								)}
 							/>
 						</div>
 						<div className="grid gap-2">
-							<Label htmlFor="email">Email</Label>
+                                                        <Label htmlFor="email">Электронная почта</Label>
 							<Controller
 								name="email"
 								control={control}
@@ -189,7 +187,7 @@ const Register = () => {
 											{...field}
 											id="email"
 											type="email"
-											placeholder="example@gmail.com"
+                                                                               placeholder="primer@gmail.com"
 										/>
 										{errors.email?.message && (
 											<p className="text-red-500 text-xs">
@@ -201,7 +199,7 @@ const Register = () => {
 							/>
 						</div>
 						<div className="grid gap-2 relative">
-							<Label htmlFor="password">Password</Label>
+                                                        <Label htmlFor="password">Пароль</Label>
 							<Controller
 								name="password"
 								control={control}
@@ -232,7 +230,7 @@ const Register = () => {
                                                         type="submit"
                                                         className="w-full font-orbitron tracking-wider"
                                                 >
-                                                        {t('signUp')}
+                                                        Зарегистрироваться
                                                 </Button>
 					</form>
 
@@ -247,12 +245,12 @@ const Register = () => {
 						</Button>
 					</div> */}
 					<div className="mt-4 text-center text-sm">
-						Already have an account?
+                                                Уже есть аккаунт?
                                                 <Link
                                                         to="/login"
                                                         className="underline hover:text-accent-foreground duration-300"
                                                 >
-                                                        {t('signIn')}
+                                                        Войти
                                                 </Link>
 					</div>
 				</CardContent>

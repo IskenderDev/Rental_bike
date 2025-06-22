@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
-import { useTranslation } from "react-i18next"
 import { Link, useNavigate } from "react-router-dom"
 import {
 	useForm,
@@ -26,7 +25,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { loginSchema } from "@/schemas/userSchema"
 
 const Login = () => {
-        const { t } = useTranslation()
         const [showPassword, setShowPassword] = useState(false)
 	const {
 		control,
@@ -63,16 +61,16 @@ const Login = () => {
 			<Card className="mx-auto max-w-sm">
 				<CardHeader>
                                         <CardTitle className="text-2xl font-orbitron tracking-wider">
-                                                {t('signIn')}
+                                                Вход
                                         </CardTitle>
-					<CardDescription className="font-inter">
-						Enter your email and password below to login to your account
-					</CardDescription>
+                                        <CardDescription className="font-inter">
+                                                Введите email и пароль для входа в аккаунт
+                                        </CardDescription>
 				</CardHeader>
 				<CardContent>
 					<form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
 						<div className="grid gap-2">
-							<Label htmlFor="email">Email</Label>
+                                                        <Label htmlFor="email">Email</Label>
 							<Controller
 								name="email"
 								control={control}
@@ -81,7 +79,7 @@ const Login = () => {
 									<>
 										<Input
 											{...field}
-											placeholder="example@gmail.com"
+                                                                               placeholder="primer@gmail.com"
 											type="email"
 										/>
 										{errors.email?.message && (
@@ -95,12 +93,12 @@ const Login = () => {
 						</div>
 						<div className="grid gap-2 relative">
 							<div className="flex items-center">
-								<Label htmlFor="password">Password</Label>
+                                                                <Label htmlFor="password">Пароль</Label>
 								<Link
 									to="#"
 									className="ml-auto inline-block text-sm underline hover:text-accent-foreground duration-300"
 								>
-									Forgot your password?
+                                                                        Забыли пароль?
 								</Link>
 							</div>
 							<Controller
@@ -133,7 +131,7 @@ const Login = () => {
                                                         type="submit"
                                                         className="w-full font-orbitron tracking-wider"
                                                 >
-                                                        {t('signIn')}
+                                                        Войти
                                                 </Button>
 					</form>
 					{/* <div className="grid grid-cols-2 gap-2 font-inter mt-2">
@@ -145,12 +143,12 @@ const Login = () => {
 						</Button>
 					</div> */}
 					<div className="mt-4 text-center text-sm">
-						Don&apos;t have an account?
+                                                Нет аккаунта?
                                                 <Link
                                                         to="/registration"
                                                         className="underline hover:text-accent-foreground duration-300"
                                                 >
-                                                        {t('signUp')}
+                                                        Регистрация
                                                 </Link>
 					</div>
 				</CardContent>
