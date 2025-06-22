@@ -3,32 +3,32 @@
 		"id": 1,
 		"name": "Elizabeth Bailey",
 		"img": "https://probike.templaza.net/wp-content/uploads/2023/08/33-300x300.jpg",
-		"role": "Customer",
-		"review": "I had a fantastic experience today buying my first road bike. I'm pretty intimidated by the sport, but Wayne never treated me like I was stupid.",
+                "role": "Клиент",
+                "review": "Сегодня я получила потрясающий опыт, покупая свой первый шоссейный велосипед. Меня немного пугал этот спорт, но Уэйн ни разу не дал мне почувствовать себя глупой.",
 		"rating": 5
 	},
 	{
 		"id": 2,
 		"name": "Elizabeth Bailey",
 		"img": "https://probike.templaza.net/wp-content/uploads/2023/08/co-founder2-300x300.jpg",
-		"role": "Customer",
-		"review": "I brought my Trek bike in to get the brakes adjusted. Not only did Daniel see me right away, but also he went above-and-beyond in checking out the bike.",
+                "role": "Клиент",
+                "review": "Я привезла свой велосипед Trek, чтобы отрегулировать тормоза. Дэниел не только сразу меня принял, но и тщательно проверил велосипед.",
 		"rating": 4
 	},
 	{
 		"id": 3,
 		"name": "Shannon",
-		"role": "Customer",
+                "role": "Клиент",
 		"img": "https://probike.templaza.net/wp-content/uploads/2023/08/co-founder1.jpg",
-		"review": "I just purchased a 2013 Domane from the Springfield store. I want to pass along to you that I had an excellent experience working with them.",
+                "review": "Я только что купила Domane 2013 года в магазине в Спрингфилде. Хочу сказать, что это был отличный опыт сотрудничества с ними.",
 		"rating": 5
 	},
 	{
 		"id": 4,
 		"name": "Majida",
-		"role": "Customer",
+                "role": "Клиент",
 		"img": "https://probike.templaza.net/wp-content/uploads/2023/08/Why-Choose-Us.jpg",
-		"review": "I had a great experience with the salesmen who helped me. I wanted to let you know your staff have earned a loyal customer.",
+                "review": "У меня был прекрасный опыт с продавцами, которые мне помогали. Хочу сказать, что ваша команда заслужила преданного клиента.",
 		"rating": 4
 	}
 ]
