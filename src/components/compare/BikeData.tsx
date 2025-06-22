@@ -18,7 +18,7 @@ const BikeData = ({ bike }: { bike: TBike }) => {
 						alt="Product img"
 						className=" rounded-md object-cover"
 						height="64"
-						src={bike.image}
+						src='https://images.unsplash.com/photo-1602007772451-574b6ab2e15a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080'
 						width="120"
 					/>
 				</TableCell>

@@ -58,7 +58,7 @@ const BikeCard: React.FC<BikeCardProps> = ({ bike }) => {
 		<div>
 			<Card className="action-hover overflow-hidden rounded-none ">
 				<CardHeader className="p-0 relative ">
-					<img src={bike?.image} alt="" width={"450px"} height={"265px"} />
+					<img src='https://images.unsplash.com/photo-1602007772451-574b6ab2e15a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080' alt="" width={"450px"} height={"265px"} />
 					<div className="action-buttons flex justify-center px-5 z-0 absolute bottom-0 w-full">
 						<Button
 							onClick={() => handleCompare(bike)}
